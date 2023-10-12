@@ -3,6 +3,7 @@
 }
 
 <h1>Netsflix, donde la diversion nunca termina! </h1>
+<img src="/Imagenes/FotoDelLogo.PNG">
 @foreach (var serie in ViewBag.listaSeries)
 {
     <div class="card" style="width: 18rem;">
@@ -10,8 +11,8 @@
     <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#serie.IdActor" class="btn btn-primary">Ir a Actores</a>
-        <a href="#serie.IdTemporada" class="btn btn-primary">Ir a Temporadas</a>
+        <a href="serie.IdActor" class="btn btn-primary">Ir a Actores</a>
+        <a href="serie.IdTemporada" class="btn btn-primary">Ir a Temporadas</a> 
     </div>
     </div>
 }
