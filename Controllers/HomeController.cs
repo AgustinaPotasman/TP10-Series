@@ -15,12 +15,20 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.listaSeries = BD.infoSeries();
+       
         return View();
     }
-
-    public IActionResult Privacy()
+    public Temporadas DetallesAjaxTemporada (int IdTemporada)
     {
-        return View();
+        Temporadas temp = BD.infoTemperadas(IdTemporada);
+        return temp;
+    }
+
+    public Actores DetallesAjaxActores (int IdActor)
+    {
+        Actores act = BD.infoTemperadas(IdActor);
+        return act;
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
