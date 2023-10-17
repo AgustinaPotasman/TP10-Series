@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+﻿﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Tp10_Series.Models;
 
@@ -15,12 +15,20 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.listaSeries = BD.infoSeries();
+       
         return View();
     }
-
-    public IActionResult Privacy()
+    public List<Temporadas> DetallesAjaxTemporada (int IdTemporada)
     {
-        return View();
+        List<Temporadas> temp = BD.infoTemperadas(IdTemporada);
+        return temp;
+    }
+
+    public List<Actores> DetallesAjaxActores(int IdActor)
+    {
+        List<Actores> act = BD.infoActores(IdActor);
+        return act;
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
