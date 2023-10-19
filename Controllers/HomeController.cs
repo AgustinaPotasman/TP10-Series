@@ -16,19 +16,22 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewBag.listaSeries = BD.infoSeries();
-       
         return View();
     }
-    public List<Temporadas> DetallesAjaxTemporada (int IdTemporada)
+    public List<Temporadas> DetallesAjaxTemporada (int IdSerie)
     {
-        List<Temporadas> temp = BD.infoTemperadas(IdTemporada);
-        return temp;
+        ViewBag.temp = BD.infoTemperadas(IdSerie);
+        return ViewBag.temp;
     }
 
-    public List<Actores> DetallesAjaxActores(int IdActor)
+    public List<Actores> DetallesAjaxActores(int IdSerie)
     {
-        List<Actores> act = BD.infoActores(IdActor);
-        return act;
+        ViewBag.act = BD.infoActores(IdSerie);
+        return ViewBag.act;
+    }
+   public Series DetallesAjaxSerie(int IdSerie)
+    {
+        return BD.infoSerie(IdSerie);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -44,4 +44,16 @@ public static class BD {
         }
         return ListaSeries;
     }
+    public static Series infoSerie(int IdSerie)
+    {
+         Series serie = null;
+         using(SqlConnection db = new SqlConnection(_connectionString) )
+        {
+            string sql ="SELECT * FROM Series WHERE IdSerie = @idSerie";
+        
+        serie = db.QueryFirstOrDefault<Series>(sql, new {idSerie = IdSerie});
+        }
+        return serie;
+    }
+
 }

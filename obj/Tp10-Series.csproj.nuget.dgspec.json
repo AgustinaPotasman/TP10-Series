@@ -46,7 +46,7 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[2.1.11, )"
+              "version": "[2.1.15, )"
             },
             "system.Data.Sqlclient": {
               "target": "Package",
