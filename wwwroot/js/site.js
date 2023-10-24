@@ -16,8 +16,8 @@
         success: 
         function(response)
         {
-          
-            let aux = '';
+          $("#Nombre").html("Series");
+          let aux = '';
           aux += `<img src="${response.imagenSerie}">`
           aux += `<p>${response.nombre}</p>`
           aux += `<p>${response.añoInicio}</p>`
@@ -41,14 +41,17 @@
         success: 
         function(response)
         {
+          
+                    
             console.log(response)
-            let texto="";
-            $("#info").html("");
-            for(const qsy of response)
+            let aux1= '';
+            $("#Nombre").html("Actores");
+          
+          for(const NombreAct of response)
             {
-                texto+=`<p>${qsy.nombre}</p>`
+              aux1+= "<p>"+ NombreAct.nombre + "</p>";
             }
-            $("#infoactores").html(texto);
+            $("#info").html(aux1);
         }
       }
     )
@@ -68,14 +71,16 @@
         {
             let texto="<p>";
             console.log(response);
-            let i = 1;
+          
             $("#Nombre").html("Temporadas")
-            response.foreach(obj =>{
-                texto += "Numero de la temporada:  " + i + obj.numeroTemporada + "<br>";
-                texto += "Titulo de la temporada:  " + i + obj.tituloTemporada + "<br>";
-                i= i +1;
-            })
-            texto+= "</p>";
+            for(const variable of response)
+            {
+                texto += "Numero de la temporada:  " +  variable.numeroTemporada + "<br>";
+                texto += "Titulo de la temporada:  " +  variable.tituloTemporada + "<br>";
+                
+                texto+= "</p>";
+            }
+            
             
             $("#info").html(texto);
           
